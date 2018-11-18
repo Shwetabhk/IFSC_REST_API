@@ -46,12 +46,19 @@ class FromBankInfoView(generics.RetrieveAPIView):
             city = request.GET['city'].upper()
             print(bank_name, city)
             bank = self.queryset.filter(bank_name=bank_name, city=city).all()
-            return Response(BankSerializer(bank, many=True).data)
-
-        except Bank.DoesNotExist:
+            if bank:
+                return Response(BankSerializer(bank, many=True).data)
+            else:
+                return Response(
+                    data={
+                        "message": "Does Not Exist"
+                    },
+                    status=status.HTTP_404_NOT_FOUND
+                )
+        except:
             return Response(
                 data={
-                    "message": "Does Not Exist"
+                    'message': "Error! Make sure the name of params is correct."
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
