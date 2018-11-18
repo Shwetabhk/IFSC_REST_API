@@ -28,6 +28,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'fyle-bank-api.herokuapp.com',
+    'localhost',
 ]
 
 
