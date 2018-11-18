@@ -25,7 +25,9 @@ SECRET_KEY = '$7ye&h*=)wpxcvk#ltapfk3jliys%j^*+1mxtrd%^k@)c0do)y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'fyle-bank-api.herokuapp.com',
+]
 
 
 # Application definition
